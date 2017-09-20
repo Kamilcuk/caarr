@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.9)
+project (VCARR C)
+enable_testing()
+
+include_directories("src")
+set (CMAKE_C_FLAGS "-O3 -g3 -lcheck")
+file(GLOB srcs ./src/*.c)
+file(GLOB tests ./tests/*.c)
+foreach(test ${tests})
+	get_filename_component(test ${test} NAME)
+	add_executable(${test}.out ./tests/${test} ${srcs})
+	add_test(${test} ${test}.out)
+endforeach()
+
+file(WRITE ${CMAKE_BINARY_DIR}/CTestCustom.ctest "set(CTEST_CUSTOM_POST_TEST \"cat Testing/Temporary/LastTest.log\")\n")
