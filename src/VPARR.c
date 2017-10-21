@@ -10,6 +10,7 @@
 #include <errno.h>
 #include <assert.h>
 #include <string.h>
+#include <stdio.h>
 #include <limits.h>
 
 /* private macros ------------------------------------------------------------- */
@@ -63,9 +64,8 @@ int VPARR_realloc(VPARR *arr, size_t nmemb)
 
 	// initialize new values to zero
 	if ( nmemb > arr->nmemb ) {
-		memset(arr->base + arr->nmemb * arr->size, 0, (arr->nmemb - nmemb) * arr->size);
+		memset(arr->base + arr->nmemb * arr->size, 0, (nmemb - arr->nmemb) * arr->size);
 	}
-
 	arr->nmemb = nmemb;
 	return 0;
 }
@@ -148,7 +148,7 @@ void *VPARR_find(VPARR *arr, void *elem)
 	return NULL;
 }
 
-void *VPARR_find_if(VPARR *arr, bool(*compar)(void*))
+void *VPARR_find_if(VPARR *arr, bool (*compar)(void*))
 {
 	VPARR_ITERATE(i, base, arr) {
 		if ( compar(base) ) {
@@ -158,7 +158,7 @@ void *VPARR_find_if(VPARR *arr, bool(*compar)(void*))
 	return NULL;
 }
 
-void *VPARR_find_if_not(VPARR *arr, bool(*compar)(void*))
+void *VPARR_find_if_not(VPARR *arr, bool (*compar)(void*))
 {
 	VPARR_ITERATE(i, base, arr) {
 		if ( !compar(base) ) {
@@ -190,7 +190,6 @@ void VPARR_replace(VPARR *arr, void *old_value, void *new_value)
 	}
 }
 
-#include <stdio.h>
 int VPARR_merge(VPARR *arr1, VPARR *arr2, VPARR *result, int (*compar)(const void *, const void *))
 {
 	if ( arr1->size != arr2->size || arr1->size != result->size || result->nmemb < arr1->nmemb + arr2->nmemb ) {

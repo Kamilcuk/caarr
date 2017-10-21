@@ -54,7 +54,7 @@ START_TEST(test_VPARR_merge)
 	_ck_assert_int(10, ==, v.nmemb);
 	VPARR_FOR_BEGIN(i, base, &v) {
 		_ck_assert_int(res_v0[i], ==, *(int*)base);
-	} VPARR_FOR_END;
+	}
 	printf("\n");
 }
 END_TEST
@@ -144,7 +144,7 @@ END_TEST
 
 int main(void)
 {
-    Suite *s1 = suite_create("Core");
+	Suite *s1 = suite_create("Core");
     TCase *tc1_1 = tcase_create("Core");
     SRunner *sr = srunner_create(s1);
     int nf;
@@ -154,7 +154,6 @@ int main(void)
     tcase_add_test(tc1_1, test_VPARR_find);
     tcase_add_test(tc1_1, test_VPARR_find_if);
     tcase_add_test(tc1_1, test_VPARR_copy);
-
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);

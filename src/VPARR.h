@@ -93,7 +93,6 @@
  * Teoretically faster then VPARR_FOR_BEGIN, practically same.
  */
 #define VPARR_FOR_REVERSE_BEGIN(i, ibase, arr) \
-	do { \
 		void *(ibase) = (arr)->base; \
 		for(size_t (i) = (arr)->nmemb; (i); --(i), (ibase)+=(arr)->size)
 /**
@@ -101,14 +100,8 @@
  * Iterate over array "arr", using iterator "i" and pointer "ibase"
  */
 #define VPARR_FOR_BEGIN(i, ibase, arr) \
-	do { \
 		void *(ibase) = (arr)->base; \
 		for(size_t (i) = 0; (i) < (arr)->nmemb; ++(i), (ibase)+=(arr)->size)
-/**
- * Close VPARR for block
- */
-#define VPARR_FOR_END \
-	}while(0);
 /**
  * @}
  */
