@@ -10,6 +10,6 @@
 #define TESTS_TESTSTRUCT_VECTOR_H_
 
 #include "teststruct_vector_config.h"
-#include "template/vector.t.h"
+#include "vector.t.h"
 
 #endif /* TESTS_TESTSTRUCT_VECTOR_H_ */

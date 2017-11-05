@@ -15,9 +15,6 @@ struct teststruct_s {
 };
 
 # define TYPE             struct teststruct_s
-# define TYPE_GET(p,i)    &(p)[(i)]
-# define TYPE_SET(p,v)    *(p) = *(v)
-# define TYPE_CMP(p,v)    memcmp(p,v,sizeof(TYPE))
 # define NAMESPACE(name)  teststruct_s ## _ ## name
 
 #endif /* TESTS_TESTSTRUCT_VECTOR_CONFIG_H_ */

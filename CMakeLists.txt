@@ -57,6 +57,7 @@ enable_testing()
 
 include_directories("src")
 #set (CMAKE_C_FLAGS "-O3 -g3 -lcheck ")
+#set (CMAKE_C_FLAGS "-g -lcheck -fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer ")
 set (CMAKE_C_FLAGS "-g -lcheck")
 
 file(GLOB srcsm4m4 ./src/*.m4)
@@ -64,6 +65,7 @@ add_m4_sources( srcsm4 ${srcsm4m4} )
 
 file(GLOB srcs ./src/*.c ./tests/*.c)
 LIST(FILTER srcs EXCLUDE REGEX "-check.c")
+LIST(FILTER srcs EXCLUDE REGEX ".t.c")
 file(GLOB tests ./tests/*-check.c)
 foreach(test ${tests})
 	get_filename_component(test ${test} NAME)

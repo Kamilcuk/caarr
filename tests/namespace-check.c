@@ -6,7 +6,6 @@
  *     License: jointly under MIT License and the Beerware License.
  */
 #include "teststruct_vector.h"
-#include "void_vector.h"
 
 int main()
 {

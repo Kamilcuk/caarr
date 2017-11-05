@@ -8,4 +8,4 @@
 
 
 #include "teststruct_vector_config.h"
-#include "template/vector.t.c"
+#include "vector.t.c"

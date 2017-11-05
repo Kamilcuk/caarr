@@ -11,29 +11,9 @@
 #ifdef TYPE
 # undef TYPE
 #endif
-#ifdef TYPE_GET
-# undef TYPE_GET
-#endif
-#ifdef TYPE_SET
-# undef TYPE_SET
-#endif
-#ifdef TYPE_CMP
-# undef TYPE_CMP
-#endif
 #ifdef NAMESPACE
 # undef NAMESPACE
 #endif
-#ifdef TYPE_VOID
-# undef TYPE_VOID
-#endif
-#ifdef PAR_SIZE
-# undef PAR_SIZE
-#endif
-
-#ifndef USE_NMEMB
-# undef USE_NMEMB
-#endif
-
 #ifdef N
 # undef N
 #endif
